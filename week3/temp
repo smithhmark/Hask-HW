@@ -1,0 +1,27 @@
+DSequence 
+  (DAssign "Out" (Val 1)) 
+  (DWhile 
+    (Op (Var "In") Gt (Val 0)) 
+    (DSequence 
+      (DAssign "Out" (Op (Var "In") Times (Var "Out"))) 
+      (DAssign "In" (Op (Var "In") Minus (Val 1)))
+    )
+  )
+
+Sequence 
+  (Assign "B" (Val 0)) 
+  (Sequence 
+    (While 
+      (Op (Var "A") Ge (Op (Var "B") Times (Var "B"))) 
+      (Incr "B")
+    ) 
+    (Assign "B" (Op (Var "B") Minus (Val 1)))
+  )
+
+DSequence 
+  (DSequence 
+    (DAssign "B" (Op (Var "B") Minus (Val 1))) 
+    (DAssign "B" (Op (Var "B") Minus (Val 1)))) 
+  (DSequence 
+    (DAssign "B" (Op (Var "B") Minus (Val 1))) 
+    (DAssign "B" (Op (Var "B") Minus (Val 1))))
